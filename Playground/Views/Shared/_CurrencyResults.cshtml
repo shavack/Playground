@@ -1,0 +1,30 @@
+﻿@model CurrencyModel
+
+@{
+    ViewData["Title"] = "Data";
+}
+<link rel="stylesheet" type="text/css" href="~/css/Table.css">
+<input type="button" value="Others to PLN" onclick="location.href='@Url.Action("Index", "Currency")'" />
+<input type="button" value="PLN to others" onclick="location.href='@Url.Action("PlnToOthers", "Currency")'" />
+
+<h1>Data</h1>
+<div>State at @Model.Date</div>
+<div>Base currency <b>@Model.Data.Base</b></div>
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <th>Currency</th>
+            <th>Value</th>
+        </tr>
+        @foreach (var prop in Model.Data.Rates.GetType().GetProperties())
+        {
+            if (prop.Name != "PLN")
+            {
+                <tr>
+                    <td>@prop.Name</td>
+                    <td>@prop.GetValue(Model.Data.Rates)</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
