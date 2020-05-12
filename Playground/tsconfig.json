@@ -1,0 +1,8 @@
+﻿{
+    "compilerOptions": {
+        "target": "es5"
+    },
+    "include": [
+        "./wwwroot/ts/*"
+    ]
+}

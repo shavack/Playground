@@ -4,14 +4,21 @@
     ViewData["Title"] = "Data";
 }
 <link rel="stylesheet" type="text/css" href="~/css/Table.css">
-<input type="button" value="Others to PLN" onclick="location.href='@Url.Action("Index", "Currency")'" />
-<input type="button" value="PLN to others" onclick="location.href='@Url.Action("PlnToOthers", "Currency")'" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="~/js/RequestHandler.ts"></script>
+<script type="text/javascript" src="~/ts/RequestHandlerTs.js"></script>
+
+<input type="button" value="Others to PLN" id="othersToPln" onclick="location.href='@Url.Action("Index", "Currency")'" />
+<input type="button" value="PLN to others" id="plnToOthers" onclick="location.href='@Url.Action("PlnToOthers", "Currency")'" />
+<input type="button" value="Others to PLN" id="othersToPlnTs" />
+<input type="button" value="PLN to others" id="plnToOthersTs" />
+<script></script>
 
 <h1>Data</h1>
 <div>State at @Model.Date</div>
 <div>Base currency <b>@Model.Data.Base</b></div>
 <div style="overflow-x:auto;">
-    <table>
+    <table id="currencyTable">
         <tr>
             <th>Currency</th>
             <th>Value</th>
